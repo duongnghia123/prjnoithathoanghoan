@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nội thất Hoàng Hoan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+</head>
+
+<body>
+  <header>
+    <div class="container d-flex align-items-center justify-content-between">
+      <!-- Logo -->
+      <div id="logo">
+        <img src="img/logo.jpg" alt="logo">
+      </div>
+
+      <!-- Menu -->
+      <nav class="navbar navbar-expand-lg">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">TRANG CHỦ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">GIỚI THIỆU</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">SẢN PHẨM</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">TIN TỨC</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">ĐỐI TÁC</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">LIÊN HỆ</a></li>
+        </ul>
+      </nav>
+
+      <!-- Icons -->
+      <div class="header-icons position-relative">
+        <i id="cartIcon" class="fa-solid fa-bag-shopping"></i>
+        <i class="fa-regular fa-heart"></i>
+        <i class="fa-solid fa-search"></i>
+
+        <!-- Popup giỏ hàng -->
+        <div id="cartPopup" class="cart-popup">
+          <p class="mb-2">Giỏ hàng của bạn đang trống !</p>
+          <button class="btn-cart">Mua hàng ngay</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <script>
+    // Hiện/ẩn popup giỏ hàng
+    const cartIcon = document.getElementById("cartIcon");
+    const cartPopup = document.getElementById("cartPopup");
+
+    cartIcon.addEventListener("mouseenter", () => {
+      cartPopup.style.display = "block";
+    });
+    cartIcon.addEventListener("mouseleave", () => {
+      setTimeout(() => {
+        cartPopup.style.display = "none";
+      }, 500);
+    });
+    cartPopup.addEventListener("mouseenter", () => {
+      cartPopup.style.display = "block";
+    });
+    cartPopup.addEventListener("mouseleave", () => {
+      cartPopup.style.display = "none";
+    });
+  </script>
+
+    <footer></footer>
+</body>
+
+</html>
