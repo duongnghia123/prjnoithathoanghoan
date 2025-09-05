@@ -14,10 +14,36 @@ li{
 }
 
     
-header {
+#main-header {
       border-bottom: 1px solid #eee;
-      padding: 10px 0;
+      padding: 24px 0;
+      position: fixed;       /* cố định header */
+      top: 0;                /* nằm sát trên cùng */
+      left: 0;
+      width: 100%;           /* chiếm toàn bộ chiều ngang */
+      z-index: 1000;         /* để đè lên các phần khác */
+      background: #fff;      /* thêm nền trắng để che nội dung phía sau */
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* bóng nhẹ để đẹp hơn */
+      transition: all 0.3s ease;
+      transform-origin: top center;
     }
+
+/* Khi thu nhỏ */
+#main-header.shrink {
+  padding: 14px 30px;
+  background: #fff;
+  
+}
+
+#main-header img {
+  height: 60px;
+  transition: height 0.3s ease;
+}
+
+#main-header.shrink img {
+  height: 40px;
+}
+  
 #logo img {
       height: 50px;
     }
@@ -26,22 +52,19 @@ header {
       margin: 0 10px;
       color: #000;
     }
-.navbar-nav .nav-link.active {
-      color: #c19a5b;
-      border-bottom: 2px solid #c19a5b;
-    }
 .header-icons i {
       font-size: 20px;
       margin-left: 20px;
       cursor: pointer;
       color: #333;
     }
-    /* Giỏ hàng popup */
+
+/* Giỏ hàng popup */
 .cart-popup {
       position: absolute;
       top: 60px;
       right: 0;
-      width: 220px;
+      width: 420px;
       background: #fff;
       border: 1px solid #c19a5b;
       border-radius: 6px;
@@ -58,6 +81,30 @@ header {
       border-style: solid;
       border-color: transparent transparent #c19a5b transparent;
     }
+
+/* danh sách yêu thích */
+.cart-heart {
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 330px;
+      background: #fff;
+      border: 1px solid #c19a5b;
+      border-radius: 6px;
+      padding: 15px;
+      display: none;
+      z-index: 1000;
+    }
+.cart-heart::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      right: 15px;
+      border-width: 0 10px 10px 10px;
+      border-style: solid;
+      border-color: transparent transparent #c19a5b transparent;
+    }
+
 .btn-cart {
       background: #c19a5b;
       color: #fff;
@@ -66,3 +113,78 @@ header {
       padding: 8px 0;
       font-weight: bold;
     }
+
+/* CSS cho banner và nd bên trong */
+.banner {
+  margin-top: 90px;  /* dịch cả banner xuống  */
+}
+.col-md-6.text-dark {
+  margin-top: -270px; /* dịch lên trên 50px */
+  transform: translateX(70px); /* dịch sang phải 50px */
+  width: 60%;
+}
+.fw-bold2 {
+  color: #c49a6c;
+}
+.btn-lienhe {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(to left, #c59d5f 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  color: #fff;
+  font-weight: bold;
+  padding: 8px 18px;
+  border: 4px solid #c59d5f;
+  transition: all 0.5s ease;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+.btn-lienhe:hover {
+  background-position: left bottom; /* trượt sang phải */
+  color: #c49a6c; /* đổi màu chữ */
+}
+
+
+/* CSS cho danh mục sản phẩm */
+.danhmuc {
+  position: relative;
+  top: -125px; /* dịch lên trên */
+  z-index: 10;
+}
+.danhmuc .container {
+  max-width: 1220px;   /* chỉnh độ rộng mong muốn */
+  margin: 0 auto;     /* căn giữa */
+}
+
+.category-link {
+  text-decoration: none;
+  color: #000; /* màu chữ mặc định */
+  transition: color 0.3s ease; /* hiệu ứng mượt */
+}
+.category-link:hover {
+  color: #c49a6c; /* màu vàng nâu khi hover */
+}
+.category-link img {
+  transition: transform 0.3s ease;
+}
+
+/* CSS cho sản phẩm nổi bật*/
+.sanphamnoibat{
+  position: relative;
+  display: inline-block;   /* để đường kẻ chỉ dài theo chữ */
+  font-weight: 800;
+  font-size: 28px;
+  color: #000000;          /* màu chữ */
+  text-transform: uppercase;
+}
+.sanphamnoibat::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;            /* cách chữ 8px */
+  transform: translateX(-50%);
+  width: 154px;            /* độ dài gạch */
+  height: 5px;             /* độ dày gạch */
+  background-color: #c59d5f; /* màu nâu */
+}
